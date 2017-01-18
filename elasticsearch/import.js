@@ -22,12 +22,12 @@ function createMapping() {
 			"location": { "type": "geo_point" },
 			"desc": { "type": "string" },
 			"zip": { "type": "string" },
-			"type": { "type": "string", "fielddata": true},
-			"category": { "type": "string"},
+			"type": { "type": "string", "fielddata": true },
+			"category": { "type": "string" },
 			"timeStamp": { "type": "string" },
-			"monthYear": {"type": "date", "format": "MM/yyyy"},
+			"monthYear": { "type": "date", "format": "MM/yyyy" },
 			"address": { "type": "string" },
-			"city": { "type": "string" }
+			"city": { "type": "keyword"}
 		}
 	};
 	return esClient.indices.putMapping({ index: "calls", type: "call", body: mapping });
@@ -38,11 +38,11 @@ createCallIndex().then(function (response) {
 	createMapping().then(function (response) {
 		console.log(response);
 		insertCalls();
-	}, function(error){
-		console.log("Error ! :"+error);
+	}, function (error) {
+		console.log("Error ! :" + error);
 	});
-}, function(error){
-	console.log("Error ! :"+error);
+}, function (error) {
+	console.log("Error ! :" + error);
 });
 
 function insertCalls() {
@@ -72,7 +72,7 @@ function insertCalls() {
 					"timeStamp": data.timeStamp,
 					"address": data.addr,
 					"city": data.twp,
-					"monthYear": ("0" + (date.getMonth() + 1)).slice(-2)+'/'+date.getFullYear()
+					"monthYear": ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()
 				}
 			);
 		})
@@ -81,8 +81,8 @@ function insertCalls() {
 			esClient.bulk({ index: "calls", type: "call", body: calls })
 				.then(response => {
 					console.log(response);
-				}, function(error){
-					console.log("Error ! :"+error);
+				}, function (error) {
+					console.log("Error ! :" + error);
 				})
 		});
 }
