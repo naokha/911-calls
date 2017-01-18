@@ -22,9 +22,10 @@ function createMapping() {
 			"location": { "type": "geo_point" },
 			"desc": { "type": "string" },
 			"zip": { "type": "string" },
-			"type": { "type": "string","fielddata": true},
+			"type": { "type": "string", "fielddata": true},
 			"category": { "type": "string"},
 			"timeStamp": { "type": "string" },
+			"monthYear": {"type": "date", "format": "MM/yyyy"},
 			"address": { "type": "string" },
 			"city": { "type": "string" }
 		}
@@ -56,6 +57,7 @@ function insertCalls() {
 			calls.push(
 				{ "index": { "_index": "calls", "_type": "call" } }
 			);
+			var date = new Date(data.timeStamp);
 			// add new call object
 			calls.push(
 				{
@@ -69,7 +71,8 @@ function insertCalls() {
 					"category": data.title.substr(data.title.indexOf(":") + 1).trim(),
 					"timeStamp": data.timeStamp,
 					"address": data.addr,
-					"city": data.twp
+					"city": data.twp,
+					"monthYear": ("0" + (date.getMonth() + 1)).slice(-2)+'/'+date.getFullYear()
 				}
 			);
 		})
