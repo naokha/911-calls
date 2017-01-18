@@ -22,10 +22,10 @@ function createMapping() {
 			"location": { "type": "geo_point" },
 			"desc": { "type": "string" },
 			"zip": { "type": "string" },
-			"type": { "type": "string","fielddata": true},
+			"type": { "type": "string", "fielddata": true},
 			"category": { "type": "string"},
 			"timeStamp": { "type": "string" },
-			"monthYear": {"type": "string"},
+			"monthYear": {"type": "string", "fielddata": true},
 			"address": { "type": "string" },
 			"city": { "type": "string" }
 		}
