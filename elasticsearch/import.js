@@ -25,7 +25,7 @@ function createMapping() {
 			"type": { "type": "string", "fielddata": true},
 			"category": { "type": "string"},
 			"timeStamp": { "type": "string" },
-			"monthYear": {"type": "string", "fielddata": true},
+			"monthYear": {"type": "date", "format": "MM/yyyy"},
 			"address": { "type": "string" },
 			"city": { "type": "string" }
 		}
