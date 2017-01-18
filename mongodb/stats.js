@@ -62,22 +62,22 @@ var getTop3CitiesWithMoreOverdoseCalls = function (db, callback) {
     });
 }
 var getCitiesAround500m = function (db, callback) {
-    db.collection("calls").aggregate([{
-        $match: { type: { $regex: ".*OVERDOSE.*" } }
-    },
-    {
-        $group: {
-            _id: '$city',
-            total: { $sum: 1 }
+    db.collection("calls").createIndex({ location: "2dsphere" })
+    db.collection("calls").find({
+        location: {
+            $near: {
+                $geometry: {
+                    type: "Point",
+                    coordinates: [
+                        -75.283783,
+                        40.241493
+                    ]
+                },
+                $maxDistance: 500
+            }
         }
-    },
-    {
-        $sort: {
-            total: -1
-        }
-    },
-    ]).limit(3).toArray(function (err, docs3) {
-        callback(docs3)
+    }).count().then(function(res){
+            callback(res);
     });
 }
 MongoClient.connect(mongoUrl, (err, db) => {
