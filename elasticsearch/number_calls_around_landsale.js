@@ -21,8 +21,8 @@ esClient.search({
                     "geo_distance": {
                         "distance": distance,
                         "location": {
-                            "lat": 40.241493,
-                            "lon": -75.283783
+                            "lat": lat,
+                            "lon": lon
                         }
                     }
                 }
