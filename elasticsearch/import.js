@@ -6,14 +6,36 @@ var esClient = new elasticsearch.Client({
 	host: 'localhost:9200',
 	log: 'error'
 });
-var creates = [];
+
+// first create mapping to specify geo point mainly
+var mapping = {
+	call: {
+		properties: {
+			location: { "type": "geo_point" },
+			desc: { "type": "string" },
+			zip: { "type": "string" },
+			type: { "type": "string" },
+			category: { "type": "string" },
+			timeStamp: { "type": "string" },
+			address: { "type": "string" },
+			city: { "type": "string" }
+		}
+	}
+};
+esClient.indices.putMapping({ index: "calls", type: "call", body: mapping });
+
+// array of 911 calls to push
+var calls = [];
+// parse csv
 fs.createReadStream('../911.csv')
 	.pipe(csv())
 	.on('data', data => {
-		creates.push(
+		// where the call will go
+		calls.push(
 			{ "index": { "_index": "calls", "_type": "call" } }
 		);
-		creates.push(
+		// add new call object
+		calls.push(
 			{
 				location: {
 					lat: data.lat,
@@ -30,7 +52,8 @@ fs.createReadStream('../911.csv')
 		);
 	})
 	.on('end', () => {
-		esClient.bulk({ body: creates })
+		// bulk insert the calls we've prepared
+		esClient.bulk({ body: calls })
 			.then(response => {
 				console.log(response);
 			}
