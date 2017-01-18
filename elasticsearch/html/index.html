@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="./js/map.js"></script>
+
+</head>
+
+<body>
+
+    <div class="left-col">
+        <div class="list-group">
+            <button class="list-group-item">
+                Actions
+            </button>
+            <button class="list-group-item list-group-item-action" onClick="getLandsaleCalls()">Nombre d'appels autour de Lansdale dans un rayon de 500 mètres</button>
+            <button class="list-group-item list-group-item-action" onClick="getCallsByCategory()">Nombre d'appels par catégorie</button>
+            <button class="list-group-item list-group-item-action" onClick="getMonthsMaxCalls()">Top 3 mois ayant comptabilisés le plus d'appels</button>
+            <button class="list-group-item list-group-item-action" onClick="getCityMaxCalls()">Top 3 des villes avec le plus d'appels pour overdose</button>
+        </div>
+        <div id="result" class="alert alert-info mt-4 invisible" role="alert">
+        </div>
+    </div>
+    <div class="righ-col">
+        <div id="map"></div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+body,
+html,
+#map,
+.righ-col {
+    height : 100%
+}
+.left-col {
+    width: 30%;
+    float:left;
+}
+
+.list-group-item-action {
+    cursor: pointer;
+}
