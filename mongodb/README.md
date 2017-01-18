@@ -32,8 +32,14 @@ Afin de répondre aux différents problèmes, vous allez avoir besoin de créer 
 À vous de jouer ! Écrivez les requêtes MongoDB permettant de résoudre les problèmes posés.
 
 ```
-TODO : ajouter les requêtes MongoDB ici
+
 ```
+Les requêtes sont contenues dans le fichier stats.js (une fonction js par question demandée):
+....
+node.js stats.js
+....
+
+
 
 Vous allez sûrement avoir besoin de vous inspirer des points suivants de la documentation :
 
