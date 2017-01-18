@@ -21,15 +21,15 @@ GET <nom de votre index>/_count
 
 À vous de jouer ! Écrivez les requêtes ElasticSearch permettant de résoudre les problèmes posés.
 
-```
-1. Lancer node import.js pour importer les données des appels d'urgence
-2. Lancer node calls_by_category.js pour obtenir les appels par catégories
-3. Lancer node get_city_max_calls.js pour obtenir les 3 villes ayant eu le maximum d'appels pour une overdose
-4. Lancer node number_calls_around_landsale.js pour obtenir le nombre d'appels autour de la ville de Landsale dans un rayon de 500m
-5. Lancer node get_months_max_calls.js pour obtenir les 3 mois durant lesquels il y a eu le nombre maximum d'appels
+
+* Lancer ```node import.js``` pour importer les données des appels d'urgence
+* Lancer ```node calls_by_category.js``` pour obtenir les appels par catégories
+* Lancer ```node get_city_max_calls.js``` pour obtenir les 3 villes ayant eu le maximum d'appels pour une overdose
+* Lancer ```node number_calls_around_landsale.js``` pour obtenir le nombre d'appels autour de la ville de Landsale dans un rayon de 500m
+* Lancer ```node get_months_max_calls.js``` pour obtenir les 3 mois durant lesquels il y a eu le nombre maximum d'appels
 
 Note : pour voir précisément les requêtes pour résoudre ces problèmes, consulter les différents scripts associés.
-```
+
 
 ## Kibana
 
