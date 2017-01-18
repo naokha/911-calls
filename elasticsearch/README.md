@@ -30,6 +30,10 @@ GET <nom de votre index>/_count
 
 Note : pour voir précisément les requêtes pour résoudre ces problèmes, consulter les différents scripts associés.
 
+Note2 : sur la branche frontend (https://github.com/naokha/911-calls/tree/frontend/elasticsearch), il existe une petite interface développée pour le fun. Pour l'utiliser :
+* Lancer ```npm install``` pour installer les dépendances
+* Lancer ```node server.js``` pour lancer le serveur (port 8000 par défaut)
+* Accéder à localhost:8000 pour accéder à l'interface. Les scripts précédents (calls_by_category, ...) ont été légèrement modifiés pour les utiliser en tant que module.
 
 ## Kibana
 
