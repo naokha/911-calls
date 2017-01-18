@@ -4,7 +4,7 @@ var esClient = new elasticsearch.Client({
     log: 'error'
 });
 
-//console.log("Searching calls around (lat:"+lat+" , lon:"+lon+") for a distance of "+distance);
+console.log("Searching calls by category ...");
 esClient.search({
     index: 'calls',
     type: 'call',
@@ -21,7 +21,6 @@ esClient.search({
 
 }).then(function (response) {
     console.log(response.aggregations.category.buckets);
-    //console.log("Found : "+response.hits.total+ " calls");
 }, function (error) {
     console.log("Error ! :" + error);
 });
